@@ -6,7 +6,9 @@
 body {
   background: #1b1b1b;
   font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
-  font-weight: 300; }
+  font-weight: 300;
+  margin: 0;
+}
 
 #wrapper {
   padding-top: 5%; }
@@ -150,3 +152,19 @@ body {
     -ms-transform: scale(0.6, 0.6);
     -o-transform: scale(0.6, 0.6);
     transform: scale(0.6, 0.6); } }
+
+footer {
+    z-index: 50;
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    color: #888;
+    text-align: center;
+    }
+footer a:link, footer a:visited {
+    color: #AAA;
+    text-decoration: underline;
+    }
+footer span {
+    width: 30%;
+    }

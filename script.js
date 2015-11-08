@@ -1,3 +1,12 @@
+function changeNet(net) {
+  if(net != 'A' && net != 'B' && net != 'C') { return; }
+  var sides = document.getElementsByClassName("cube-image");
+  for(var i=0; i < Math.min(sides.length, 6); i++)
+  {
+    sides[i].src = "markers/"+net+"_"+i+".svg";
+  }
+}
+
 var events = new Events();
 events.add = function(obj) {
   obj.events = { };
