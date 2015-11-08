@@ -1,3 +1,9 @@
+function zoom(z) {
+  var old = Number(document.getElementsByClassName('viewport')[0].style.zoom);
+  if (old == NaN || old == 0) { old = 1; }
+  document.getElementsByClassName('viewport')[0].style.zoom = old * z;
+}
+
 function changeNet(net) {
   if(net != 'A' && net != 'B' && net != 'C') { return; }
   var sides = document.getElementsByClassName("cube-image");

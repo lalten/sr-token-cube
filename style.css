@@ -14,6 +14,8 @@ body {
   padding-top: 5%; }
 
 .viewport {
+  transition = scale 0.1s;
+  -webkit-transition = scale 0.1s;
   -webkit-perspective: 800px;
   -moz-perspective: 800px;
   -ms-perspective: 800px;
@@ -24,11 +26,13 @@ body {
   -ms-perspective-origin: 50% 200px;
   -o-perspective-origin: 50% 200px;
   perspective-origin: 50% 200px;
-  -webkit-transform: scale(0.8, 0.8);
-  -moz-transform: scale(0.8, 0.8);
-  -ms-transform: scale(0.8, 0.8);
-  -o-transform: scale(0.8, 0.8);
-  transform: scale(0.8, 0.8);
+  /*
+  -webkit-transform: scale(1.0, 1.0);
+  -moz-transform: scale(1.0, 1.0);
+  -ms-transform: scale(1.0, 1.0);
+  -o-transform: scale(1.0, 1.0);
+  transform: scale(1.0, 1.0);
+  */
   }
 
 .cube {
@@ -51,8 +55,8 @@ body {
   overflow: hidden;
   position: absolute;
   opacity: 1;
-  height: 200px;
-  width: 200px;
+  height: 100%;
+  width: 100%;
   background-image: url("http://jordizle.com/demo/376/3d-interactive-cube-with-rotating-sides-using-css3-and-javascript/assets/img/cube/blank.png");
   -webkit-touch-callout: none;
   -moz-touch-callout: none;
@@ -145,6 +149,7 @@ body {
   transform: rotateX(-90deg) rotate(180deg) translateZ(100px);
 }
 
+/*
 @media (max-width: 640px) {
   .viewport {
     -webkit-transform: scale(0.6, 0.6);
@@ -152,7 +157,7 @@ body {
     -ms-transform: scale(0.6, 0.6);
     -o-transform: scale(0.6, 0.6);
     transform: scale(0.6, 0.6); } }
-
+*/
 footer {
     z-index: 50;
     position: absolute;
@@ -164,7 +169,4 @@ footer {
 footer a:link, footer a:visited {
     color: #AAA;
     text-decoration: underline;
-    }
-footer span {
-    width: 30%;
     }
