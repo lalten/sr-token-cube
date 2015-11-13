@@ -14,14 +14,15 @@ function zoom(z) {
     document.getElementById('side'+i).style.transform = rotateStyle[i] + ' translateZ(' + newLength/2 + 'px)';
   }
   
+  
+  //TODO: change perspective too?
 }
 
 function changeNet(net) {
   if(net != 'A' && net != 'B' && net != 'C') { return; }
-  var sides = document.getElementsByClassName("cube-image");
-  for(var i=0; i < Math.min(sides.length, 6); i++)
+  for(var i=0; i < 6; i++)
   {
-    sides[i].src = "markers/"+net+"_"+i+".svg";
+    document.getElementById('side'+i).style.backgroundImage = 'url("markers/'+net+'_'+i+'.svg")';
   }
 }
 

@@ -20,26 +20,11 @@ body {
 .viewport {
   display: table-cell;
   vertical-align: middle;
-  transition = scale 0.1s;
-  -webkit-transition = scale 0.1s;
   -webkit-perspective: 800px;
   -moz-perspective: 800px;
   -ms-perspective: 800px;
   -o-perspective: 800px;
   perspective: 800px;
-  /*
-  -webkit-perspective-origin: 50% 200px;
-  -moz-perspective-origin: 50% 200px;
-  -ms-perspective-origin: 50% 200px;
-  -o-perspective-origin: 50% 200px;
-  perspective-origin: 50% 200px;
-
-  -webkit-transform: scale(1.0, 1.0);
-  -moz-transform: scale(1.0, 1.0);
-  -ms-transform: scale(1.0, 1.0);
-  -o-transform: scale(1.0, 1.0);
-  transform: scale(1.0, 1.0);
-  */
   }
 
 .cube {
@@ -52,11 +37,11 @@ body {
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transform: rotateX(136deg) rotateY(1122deg);
-  -moz-transform: rotateX(136deg) rotateY(1122deg);
-  -ms-transform: rotateX(136deg) rotateY(1122deg);
-  -o-transform: rotateX(136deg) rotateY(1122deg);
-  transform: rotateX(136deg) rotateY(1122deg); }
+  -webkit-transform: rotateX(136deg) rotateY(136deg);
+  -moz-transform: rotateX(136deg) rotateY(136deg);
+  -ms-transform: rotateX(136deg) rotateY(136deg);
+  -o-transform: rotateX(136deg) rotateY(136deg);
+  transform: rotateX(136deg) rotateY(136deg); }
 
 .cube > div {
   overflow: hidden;
@@ -64,7 +49,7 @@ body {
   opacity: 1;
   height: 100%;
   width: 100%;
-  background-image: url("http://jordizle.com/demo/376/3d-interactive-cube-with-rotating-sides-using-css3-and-javascript/assets/img/cube/blank.png");
+  
   -webkit-touch-callout: none;
   -moz-touch-callout: none;
   -ms-touch-callout: none;
@@ -74,32 +59,8 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
-  user-select: none; }
-
-.cube > div > .cube-image {
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-drag: none;
-  width: 100%;
-  height: 100%;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  transform: rotate(180deg);
-  line-height: 200px;
-  font-size: 80px;
-  text-align: center;
-  color: #1b9bd8;
-  -webkit-transition: color 600ms;
-  -moz-transition: color 600ms;
-  -ms-transition: color 600ms;
-  -o-transition: color 600ms;
-  transition: color 600ms; }
-  .cube > div > div.cube-image.active {
-    color: red; }
+  user-select: none;
+  }
 
 
 .cube > div:hover {
@@ -109,62 +70,65 @@ body {
   cursor: pointer; }
 
 #side0 {
-  -webkit-transform: rotateX(90deg) translateZ(100px);
-  -moz-transform: rotateX(90deg) translateZ(100px);
-  -ms-transform: rotateX(90deg) translateZ(100px);
-  -o-transform: rotateX(90deg) translateZ(100px);
-  transform: rotateX(90deg) translateZ(100px);
+  background-image: url("markers/A_0.svg");
+  background-size: contain;
+  -webkit-transform: rotate(180deg) rotateX(-90deg) translateZ(100px);
+  -moz-transform: rotate(180deg) rotateX(-90deg) translateZ(100px);
+  -ms-transform: rotate(180deg) rotateX(-90deg) translateZ(100px);
+  -o-transform: rotate(180deg) rotateX(-90deg) translateZ(100px);
+  transform: rotate(180deg) rotateX(-90deg) translateZ(100px);
 }
 
 #side1 {
-  -webkit-transform: translateZ(100px);
-  -moz-transform: translateZ(100px);
-  -ms-transform: translateZ(100px);
-  -o-transform: translateZ(100px);
-  transform: translateZ(100px);
+  background-image: url("markers/A_1.svg");
+  background-size: contain;
+  -webkit-transform: rotate(180deg) translateZ(100px);
+  -moz-transform: rotate(180deg) translateZ(100px);
+  -ms-transform: rotate(180deg) translateZ(100px);
+  -o-transform: rotate(180deg) translateZ(100px);
+  transform: rotate(180deg) translateZ(100px);
 }
 
 #side2 {
-  -webkit-transform: rotateY(90deg) translateZ(100px);
-  -moz-transform: rotateY(90deg) translateZ(100px);
-  -ms-transform: rotateY(90deg) translateZ(100px);
-  -o-transform: rotateY(90deg) translateZ(100px);
-  transform: rotateY(90deg) translateZ(100px);
+  background-image: url("markers/A_2.svg");
+  background-size: contain;
+  -webkit-transform: rotate(180deg) rotateY(90deg) translateZ(100px);
+  -moz-transform: rotate(180deg) rotateY(90deg) translateZ(100px);
+  -ms-transform: rotate(180deg) rotateY(90deg) translateZ(100px);
+  -o-transform: rotate(180deg) rotateY(90deg) translateZ(100px);
+  transform: rotate(180deg) rotateY(90deg) translateZ(100px);
 }
 
 #side3 {
-  -webkit-transform: rotateY(180deg) translateZ(100px);
-  -moz-transform: rotateY(180deg) translateZ(100px);
-  -ms-transform: rotateY(180deg) translateZ(100px);
-  -o-transform: rotateY(180deg) translateZ(100px);
-  transform: rotateY(180deg) translateZ(100px);
+  background-image: url("markers/A_3.svg");
+  background-size: contain;
+  -webkit-transform: rotate(180deg) rotateY(180deg) translateZ(100px);
+  -moz-transform: rotate(180deg) rotateY(180deg) translateZ(100px);
+  -ms-transform: rotate(180deg) rotateY(180deg) translateZ(100px);
+  -o-transform: rotate(180deg) rotateY(180deg) translateZ(100px);
+  transform: rotate(180deg) rotateY(180deg) translateZ(100px);
 }
 
 #side4 {
-  -webkit-transform: rotateY(-90deg) translateZ(100px);
-  -moz-transform: rotateY(-90deg) translateZ(100px);
-  -ms-transform: rotateY(-90deg) translateZ(100px);
-  -o-transform: rotateY(-90deg) translateZ(100px);
-  transform: rotateY(-90deg) translateZ(100px);
+  background-image: url("markers/A_4.svg");
+  background-size: contain;
+  -webkit-transform: rotate(180deg) rotateY(-90deg) translateZ(100px);
+  -moz-transform: rotate(180deg) rotateY(-90deg) translateZ(100px);
+  -ms-transform: rotate(180deg) rotateY(-90deg) translateZ(100px);
+  -o-transform: rotate(180deg) rotateY(-90deg) translateZ(100px);
+  transform: rotate(180deg) rotateY(-90deg) translateZ(100px);
 }
 
 #side5 {
-  -webkit-transform: rotateX(-90deg) rotate(180deg) translateZ(100px);
-  -moz-transform: rotateX(-90deg) rotate(180deg) translateZ(100px);
-  -ms-transform: rotateX(-90deg) rotate(180deg) translateZ(100px);
-  -o-transform: rotateX(-90deg) rotate(180deg) translateZ(100px);
-  transform: rotateX(-90deg) rotate(180deg) translateZ(100px);
+  background-image: url("markers/A_5.svg");
+  background-size: contain;
+  -webkit-transform: rotateX(-90deg) translateZ(100px);
+  -moz-transform: rotateX(-90deg) translateZ(100px);
+  -ms-transform: rotateX(-90deg) translateZ(100px);
+  -o-transform: rotateX(-90deg) translateZ(100px);
+  transform: rotateX(-90deg) translateZ(100px);
 }
 
-/*
-@media (max-width: 640px) {
-  .viewport {
-    -webkit-transform: scale(0.6, 0.6);
-    -moz-transform: scale(0.6, 0.6);
-    -ms-transform: scale(0.6, 0.6);
-    -o-transform: scale(0.6, 0.6);
-    transform: scale(0.6, 0.6); } }
-*/
 footer {
     z-index: 50;
     position: absolute;
