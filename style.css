@@ -11,9 +11,15 @@ body {
 }
 
 #wrapper {
-  padding-top: 5%; }
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
 
 .viewport {
+  display: table-cell;
+  vertical-align: middle;
   transition = scale 0.1s;
   -webkit-transition = scale 0.1s;
   -webkit-perspective: 800px;
@@ -21,12 +27,13 @@ body {
   -ms-perspective: 800px;
   -o-perspective: 800px;
   perspective: 800px;
+  /*
   -webkit-perspective-origin: 50% 200px;
   -moz-perspective-origin: 50% 200px;
   -ms-perspective-origin: 50% 200px;
   -o-perspective-origin: 50% 200px;
   perspective-origin: 50% 200px;
-  /*
+
   -webkit-transform: scale(1.0, 1.0);
   -moz-transform: scale(1.0, 1.0);
   -ms-transform: scale(1.0, 1.0);
