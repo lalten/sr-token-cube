@@ -295,8 +295,3 @@ var viewport = new Viewport({
   touchSensivity: 1.5
 });
 
-
-new Cube({
-  viewport: viewport,
-  element: document.getElementsByClassName('cube')[0]
-});
