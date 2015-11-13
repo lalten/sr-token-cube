@@ -1,7 +1,19 @@
 function zoom(z) {
-  var old = Number(document.getElementsByClassName('viewport')[0].style.zoom);
-  if (old == NaN || old == 0) { old = 1; }
-  document.getElementsByClassName('viewport')[0].style.zoom = old * z;
+  var rotateStyle = ['rotateX(90deg)', '', 'rotateY(90deg)', 'rotateY(180deg)', 'rotateY(-90deg)', 'rotateX(-90deg)'];
+    
+  var cubeStyle = document.getElementsByClassName('cube')[0].style;
+  var oldLength = parseFloat(cubeStyle.height);
+  
+  if ( isNaN(oldLength) || oldLength == 0) { oldLength = 200; }
+  var newLength = z * oldLength;
+  
+  cubeStyle.height = newLength + "px";
+  cubeStyle.width  = newLength  + "px";
+  
+  for (var i=0; i<6; i++) {
+    document.getElementById('side'+i).style.transform = rotateStyle[i] + ' translateZ(' + newLength/2 + 'px)';
+  }
+  
 }
 
 function changeNet(net) {

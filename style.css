@@ -108,7 +108,7 @@ body {
 .cube > div:active {
   cursor: pointer; }
 
-.cube > div:first-child {
+#side0 {
   -webkit-transform: rotateX(90deg) translateZ(100px);
   -moz-transform: rotateX(90deg) translateZ(100px);
   -ms-transform: rotateX(90deg) translateZ(100px);
@@ -116,7 +116,7 @@ body {
   transform: rotateX(90deg) translateZ(100px);
 }
 
-.cube > div:nth-child(2) {
+#side1 {
   -webkit-transform: translateZ(100px);
   -moz-transform: translateZ(100px);
   -ms-transform: translateZ(100px);
@@ -124,15 +124,15 @@ body {
   transform: translateZ(100px);
 }
 
-.cube > div:nth-child(3) {
+#side2 {
   -webkit-transform: rotateY(90deg) translateZ(100px);
   -moz-transform: rotateY(90deg) translateZ(100px);
   -ms-transform: rotateY(90deg) translateZ(100px);
   -o-transform: rotateY(90deg) translateZ(100px);
   transform: rotateY(90deg) translateZ(100px);
-  outline: 1px solid transparent; }
+}
 
-.cube > div:nth-child(4) {
+#side3 {
   -webkit-transform: rotateY(180deg) translateZ(100px);
   -moz-transform: rotateY(180deg) translateZ(100px);
   -ms-transform: rotateY(180deg) translateZ(100px);
@@ -140,7 +140,7 @@ body {
   transform: rotateY(180deg) translateZ(100px);
 }
 
-.cube > div:nth-child(5) {
+#side4 {
   -webkit-transform: rotateY(-90deg) translateZ(100px);
   -moz-transform: rotateY(-90deg) translateZ(100px);
   -ms-transform: rotateY(-90deg) translateZ(100px);
@@ -148,7 +148,7 @@ body {
   transform: rotateY(-90deg) translateZ(100px);
 }
 
-.cube > div:nth-child(6) {
+#side5 {
   -webkit-transform: rotateX(-90deg) rotate(180deg) translateZ(100px);
   -moz-transform: rotateX(-90deg) rotate(180deg) translateZ(100px);
   -ms-transform: rotateX(-90deg) rotate(180deg) translateZ(100px);
