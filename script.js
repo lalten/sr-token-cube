@@ -147,6 +147,7 @@ function Viewport(data) {
   this.positionY = 136;
   this.torqueX = 0;
   this.torqueY = 0;
+  this.scrollDelta = 0;
 
   this.down = false;
   this.upsideDown = false;
@@ -158,6 +159,17 @@ function Viewport(data) {
   this.calculatedSide = 0;
 
 
+  bindEvent(document, 'mousewheel', function(e) { // IE9, Chrome, Safari, Opera
+	  self.scrollDelta += Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+  });
+  bindEvent(document, 'DOMMouseScroll', function(e) { // Firefox
+	  self.scrollDelta += Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+  });
+  bindEvent(document, 'onmousewheel', function() { // IE 6/7/8
+    var e = window.event;
+	  self.scrollDelta += Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+  });
+  
   bindEvent(document, 'mousedown', function() {
     self.down = true;
   });
