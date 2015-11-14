@@ -148,6 +148,7 @@ function Viewport(data) {
   this.torqueX = 0;
   this.torqueY = 0;
   this.scrollDelta = 0;
+  this.size = 500;
 
   this.down = false;
   this.upsideDown = false;
@@ -290,12 +291,21 @@ Viewport.prototype.animate = function() {
         this.calculatedSide = 1;
       }
     }
-
-
   }
 
   this.element.style[userPrefix.js + 'Transform'] = 'rotateX(' + this.positionY + 'deg) rotateY(' + this.positionX + 'deg)';
 
+
+  this.size = Math.min(1000, Math.max(100, this.size + this.scrollDelta * 50));
+  this.scrollDelta = 0;
+    
+  this.element.style.height = this.size + "px";
+  this.element.style.width  = this.size + "px";
+  
+  var rotateStyle = ['rotateX(90deg)', '', 'rotateY(90deg)', 'rotateY(180deg)', 'rotateY(-90deg)', 'rotateX(-90deg)'];
+  for (var i=0; i<6; i++) {
+    document.getElementById('side'+i).style.transform = rotateStyle[i] + ' translateZ(' + this.size/2 + 'px)';
+  }
 
 }
 var viewport = new Viewport({

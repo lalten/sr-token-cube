@@ -30,8 +30,8 @@ body {
 .cube {
   position: relative;
   margin: 0 auto;
-  height: 200px;
-  width: 200px;
+  height: 500px;
+  width: 500px;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
@@ -72,61 +72,61 @@ body {
 #side0 {
   background-image: url("markers/A_0.svg");
   background-size: contain;
-  -webkit-transform: rotate(180deg) rotateX(-90deg) translateZ(100px);
-  -moz-transform: rotate(180deg) rotateX(-90deg) translateZ(100px);
-  -ms-transform: rotate(180deg) rotateX(-90deg) translateZ(100px);
-  -o-transform: rotate(180deg) rotateX(-90deg) translateZ(100px);
-  transform: rotate(180deg) rotateX(-90deg) translateZ(100px);
+  -webkit-transform: rotate(180deg) rotateX(-90deg) translateZ(250px);
+  -moz-transform: rotate(180deg) rotateX(-90deg) translateZ(250px);
+  -ms-transform: rotate(180deg) rotateX(-90deg) translateZ(250px);
+  -o-transform: rotate(180deg) rotateX(-90deg) translateZ(250px);
+  transform: rotate(180deg) rotateX(-90deg) translateZ(250px);
 }
 
 #side1 {
   background-image: url("markers/A_1.svg");
   background-size: contain;
-  -webkit-transform: rotate(180deg) translateZ(100px);
-  -moz-transform: rotate(180deg) translateZ(100px);
-  -ms-transform: rotate(180deg) translateZ(100px);
-  -o-transform: rotate(180deg) translateZ(100px);
-  transform: rotate(180deg) translateZ(100px);
+  -webkit-transform: rotate(180deg) translateZ(250px);
+  -moz-transform: rotate(180deg) translateZ(250px);
+  -ms-transform: rotate(180deg) translateZ(250px);
+  -o-transform: rotate(180deg) translateZ(250px);
+  transform: rotate(180deg) translateZ(250px);
 }
 
 #side2 {
   background-image: url("markers/A_2.svg");
   background-size: contain;
-  -webkit-transform: rotate(180deg) rotateY(90deg) translateZ(100px);
-  -moz-transform: rotate(180deg) rotateY(90deg) translateZ(100px);
-  -ms-transform: rotate(180deg) rotateY(90deg) translateZ(100px);
-  -o-transform: rotate(180deg) rotateY(90deg) translateZ(100px);
-  transform: rotate(180deg) rotateY(90deg) translateZ(100px);
+  -webkit-transform: rotate(180deg) rotateY(90deg) translateZ(250px);
+  -moz-transform: rotate(180deg) rotateY(90deg) translateZ(250px);
+  -ms-transform: rotate(180deg) rotateY(90deg) translateZ(250px);
+  -o-transform: rotate(180deg) rotateY(90deg) translateZ(250px);
+  transform: rotate(180deg) rotateY(90deg) translateZ(250px);
 }
 
 #side3 {
   background-image: url("markers/A_3.svg");
   background-size: contain;
-  -webkit-transform: rotate(180deg) rotateY(180deg) translateZ(100px);
-  -moz-transform: rotate(180deg) rotateY(180deg) translateZ(100px);
-  -ms-transform: rotate(180deg) rotateY(180deg) translateZ(100px);
-  -o-transform: rotate(180deg) rotateY(180deg) translateZ(100px);
-  transform: rotate(180deg) rotateY(180deg) translateZ(100px);
+  -webkit-transform: rotate(180deg) rotateY(180deg) translateZ(250px);
+  -moz-transform: rotate(180deg) rotateY(180deg) translateZ(250px);
+  -ms-transform: rotate(180deg) rotateY(180deg) translateZ(250px);
+  -o-transform: rotate(180deg) rotateY(180deg) translateZ(250px);
+  transform: rotate(180deg) rotateY(180deg) translateZ(250px);
 }
 
 #side4 {
   background-image: url("markers/A_4.svg");
   background-size: contain;
-  -webkit-transform: rotate(180deg) rotateY(-90deg) translateZ(100px);
-  -moz-transform: rotate(180deg) rotateY(-90deg) translateZ(100px);
-  -ms-transform: rotate(180deg) rotateY(-90deg) translateZ(100px);
-  -o-transform: rotate(180deg) rotateY(-90deg) translateZ(100px);
-  transform: rotate(180deg) rotateY(-90deg) translateZ(100px);
+  -webkit-transform: rotate(180deg) rotateY(-90deg) translateZ(250px);
+  -moz-transform: rotate(180deg) rotateY(-90deg) translateZ(250px);
+  -ms-transform: rotate(180deg) rotateY(-90deg) translateZ(250px);
+  -o-transform: rotate(180deg) rotateY(-90deg) translateZ(250px);
+  transform: rotate(180deg) rotateY(-90deg) translateZ(250px);
 }
 
 #side5 {
   background-image: url("markers/A_5.svg");
   background-size: contain;
-  -webkit-transform: rotateX(-90deg) translateZ(100px);
-  -moz-transform: rotateX(-90deg) translateZ(100px);
-  -ms-transform: rotateX(-90deg) translateZ(100px);
-  -o-transform: rotateX(-90deg) translateZ(100px);
-  transform: rotateX(-90deg) translateZ(100px);
+  -webkit-transform: rotateX(-90deg) translateZ(250px);
+  -moz-transform: rotateX(-90deg) translateZ(250px);
+  -ms-transform: rotateX(-90deg) translateZ(250px);
+  -o-transform: rotateX(-90deg) translateZ(250px);
+  transform: rotateX(-90deg) translateZ(250px);
 }
 
 footer {
