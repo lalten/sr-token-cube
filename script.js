@@ -303,7 +303,7 @@ Viewport.prototype.animate = function() {
   this.element.style.height = this.size + "px";
   this.element.style.width  = this.size + "px";
   
-  var rotateStyle = ['rotateX(90deg)', '', 'rotateY(90deg)', 'rotateY(180deg)', 'rotateY(-90deg)', 'rotateX(-90deg)'];
+  var rotateStyle = ['rotate(180deg) rotateX(-90deg)', 'rotate(180deg)', 'rotate(180deg) rotateY(90deg)', 'rotate(180deg) rotateY(180deg)', 'rotate(180deg) rotateY(-90deg)', 'rotateX(-90deg)'];
   for (var i=0; i<6; i++) {
     document.getElementById('side'+i).style.transform = rotateStyle[i] + ' translateZ(' + this.size/2 + 'px)';
   }
