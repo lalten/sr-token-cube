@@ -5,4 +5,4 @@ Forked from [Jordan Leigh](http://codepen.io/jordizle/)'s Pen [3D Interactive Cu
 
 View the demo on http://lalten.github.io/sr-token-cube/
 
-You can also [download the zip](https://github.com/lalten/sr-token-cube/archive/gh-pages.zip) to use it offline.
+You can also [download the zip](https://github.com/lalten/sr-token-cube/archive/gh-pages.zip) to use it offline (open `index.html` in your browser).
