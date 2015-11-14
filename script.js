@@ -1,23 +1,3 @@
-function zoom(z) {
-  var rotateStyle = ['rotateX(90deg)', '', 'rotateY(90deg)', 'rotateY(180deg)', 'rotateY(-90deg)', 'rotateX(-90deg)'];
-    
-  var cubeStyle = document.getElementsByClassName('cube')[0].style;
-  var oldLength = parseFloat(cubeStyle.height);
-  
-  if ( isNaN(oldLength) || oldLength == 0) { oldLength = 200; }
-  var newLength = z * oldLength;
-  
-  cubeStyle.height = newLength + "px";
-  cubeStyle.width  = newLength  + "px";
-  
-  for (var i=0; i<6; i++) {
-    document.getElementById('side'+i).style.transform = rotateStyle[i] + ' translateZ(' + newLength/2 + 'px)';
-  }
-  
-  
-  //TODO: change perspective too?
-}
-
 function changeNet(net) {
   if(net != 'A' && net != 'B' && net != 'C') { return; }
   for(var i=0; i < 6; i++)
@@ -147,8 +127,13 @@ function Viewport(data) {
   this.positionY = 136;
   this.torqueX = 0;
   this.torqueY = 0;
+  
   this.scrollDelta = 0;
   this.size = 500;
+  
+  this.pinch = false;
+  this.pinchDist = 0;
+  this.pinchDistStart = 0;
 
   this.down = false;
   this.upsideDown = false;
@@ -189,13 +174,21 @@ function Viewport(data) {
   });
 
   bindEvent(document, 'touchstart', function(e) {
-
-    self.down = true;
-    e.touches ? e = e.touches[0] : null;
-    self.mouseX = e.pageX / self.touchSensivity;
-    self.mouseY = e.pageY / self.touchSensivity;
-    self.lastX  = self.mouseX;
-    self.lastY  = self.mouseY;
+  
+    if(e.touches.length == 1) {
+      self.down = true;
+      e.touches ? e = e.touches[0] : null;
+      self.mouseX = e.pageX / self.touchSensivity;
+      self.mouseY = e.pageY / self.touchSensivity;
+      self.lastX  = self.mouseX;
+      self.lastY  = self.mouseY;
+    } else if (e.touches.length == 2) {
+      self.pinchDistStart = Math.sqrt(
+        (e.touches[0].pageX-e.touches[1].pageX) * (e.touches[0].pageX-e.touches[1].pageX) +
+        (e.touches[0].pageY-e.touches[1].pageY) * (e.touches[0].pageY-e.touches[1].pageY));
+      self.pinchDist = self.pinchDistStart;
+    }
+    
   });
 
   bindEvent(document, 'touchmove', function(e) {
@@ -203,13 +196,16 @@ function Viewport(data) {
       e.preventDefault();
     }
 
+    if (e.touches.length == 2) {
+      self.pinchDist = Math.sqrt(
+        (e.touches[0].pageX-e.touches[1].pageX) * (e.touches[0].pageX-e.touches[1].pageX) +
+        (e.touches[0].pageY-e.touches[1].pageY) * (e.touches[0].pageY-e.touches[1].pageY));
+    }
+    
     if(e.touches.length == 1) {
-
       e.touches ? e = e.touches[0] : null;
-
       self.mouseX = e.pageX / self.touchSensivity;
       self.mouseY = e.pageY / self.touchSensivity;
-
     }
   });
 
@@ -295,7 +291,12 @@ Viewport.prototype.animate = function() {
 
   this.element.style[userPrefix.js + 'Transform'] = 'rotateX(' + this.positionY + 'deg) rotateY(' + this.positionX + 'deg)';
 
-
+  
+  if (this.pinchDist > 0 && this.pinchDistStart > 0) {
+    this.size = this.size * (this.pinchDist / this.pinchDistStart);
+    this.pinchDistStart = this.pinchDist;
+  }
+  
   this.size = Math.min(1000, Math.max(100, this.size + this.scrollDelta * 50));
   this.scrollDelta = 0;
     
