@@ -1,5 +1,5 @@
-function changeNet(net) {
-  if(net != 'A' && net != 'B' && net != 'C') { return; }
+function changeNet() {
+ var net = document.forms[0].net.value;
   for(var i=0; i < 6; i++)
   {
     document.getElementById('side'+i).style.backgroundImage = 'url("markers/'+net+'_'+i+'.svg")';

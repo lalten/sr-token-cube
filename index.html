@@ -5,6 +5,15 @@
   <meta charset="utf-8"/>
 </head>
 <body>
+<div id="settings">
+  <form>
+    <select name="net" onchange="changeNet()">
+      <option value="A">Net A</option>
+      <option value="B">Net B</option>
+      <option value="C">Net C</option>
+    </select>
+  </form>
+</div>
 <div id="wrapper">
   <div class="viewport">
     <div class="cube">
@@ -17,14 +26,6 @@
     </div>
   </div>
 </div>
-<footer>
-  <span>
-    Net:
-    <a href="javascript:changeNet('A');">A</a>,
-    <a href="javascript:changeNet('B');">B</a>,
-    <a href="javascript:changeNet('C');">C</a>
-  </span>
-</footer>
 <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
