@@ -141,9 +141,6 @@ function Viewport(data) {
   this.previousPositionX = 0;
   this.previousPositionY = 0;
 
-  this.currentSide = 0;
-  this.calculatedSide = 0;
-
 
   bindEvent(document, 'mousewheel', function(e) { // IE9, Chrome, Safari, Opera
 	  self.scrollDelta += Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
@@ -255,51 +252,22 @@ Viewport.prototype.animate = function() {
     } else if(this.positionX < 0) {
       this.positionX += 360;
     }
-
-    if(!(this.positionY >= 46 && this.positionY <= 130) && !(this.positionY >= 220 && this.positionY <= 308)) {
-      if(this.upsideDown) {
-        if(this.positionX >= 42 && this.positionX <= 130) {
-          this.calculatedSide = 3;
-        } else if(this.positionX >= 131 && this.positionX <= 223) {
-          this.calculatedSide = 2;
-        } else if(this.positionX >= 224 && this.positionX <= 314) {
-          this.calculatedSide = 5;
-        } else {
-          this.calculatedSide = 4;
-        }
-      } else {
-        if(this.positionX >= 42 && this.positionX <= 130) {
-          this.calculatedSide = 5;
-        } else if(this.positionX >= 131 && this.positionX <= 223) {
-          this.calculatedSide = 4;
-        } else if(this.positionX >= 224 && this.positionX <= 314) {
-          this.calculatedSide = 3;
-        } else {
-          this.calculatedSide = 2;
-        }
-      }
-    } else {
-      if(this.positionY >= 46 && this.positionY <= 130) {
-        this.calculatedSide = 6;
-      }
-
-      if(this.positionY >= 220 && this.positionY <= 308) {
-        this.calculatedSide = 1;
-      }
-    }
   }
 
   this.element.style[userPrefix.js + 'Transform'] = 'rotateX(' + this.positionY + 'deg) rotateY(' + this.positionX + 'deg)';
-
   
-  if (this.pinchDist > 0 && this.pinchDistStart > 0) {
-    this.size = this.size * (this.pinchDist / this.pinchDistStart);
+  if (this.scrollDelta != 0 || (this.pinchDist > 0 && this.pinchDistStart > 0)) {
+    var scale = (this.pinchDist / this.pinchDistStart);
+    if (this.scrollDelta != 0) {
+      scale = 1 + 0.02*this.scrollDelta;
+      this.scrollDelta = 0;
+    }
+    this.size *= scale;
+    this.touchSensivity *= scale;
+    
     this.pinchDistStart = this.pinchDist;
   }
   
-  this.size = Math.min(1000, Math.max(100, this.size + this.scrollDelta * 50));
-  this.scrollDelta = 0;
-    
   this.element.style.height = this.size + "px";
   this.element.style.width  = this.size + "px";
   
@@ -315,6 +283,6 @@ var viewport = new Viewport({
   sensivity: .1,
   sensivityFade: .93,
   speed: 2,
-  touchSensivity: 1.5
+  touchSensivity: 4
 });
 
