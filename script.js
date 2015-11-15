@@ -110,6 +110,7 @@ function Viewport(data) {
 
   var self = this;
 
+  this.viewport = data.viewport;
   this.element = data.element;
   this.fps = data.fps;
   this.sensivity = data.sensivity;
@@ -130,6 +131,7 @@ function Viewport(data) {
   
   this.scrollDelta = 0;
   this.size = 500;
+  this.perspective = 1000;
   
   this.pinch = false;
   this.pinchDist = 0;
@@ -257,17 +259,22 @@ Viewport.prototype.animate = function() {
   this.element.style[userPrefix.js + 'Transform'] = 'rotateX(' + this.positionY + 'deg) rotateY(' + this.positionX + 'deg)';
   
   if (this.scrollDelta != 0 || (this.pinchDist > 0 && this.pinchDistStart > 0)) {
+    
     var scale = (this.pinchDist / this.pinchDistStart);
+    this.pinchDistStart = this.pinchDist;    
+    
     if (this.scrollDelta != 0) {
       scale = 1 + 0.02*this.scrollDelta;
       this.scrollDelta = 0;
     }
+    
     this.size *= scale;
     this.touchSensivity *= scale;
+    this.perspective *= scale; // don't distort the cube while zooming
     
-    this.pinchDistStart = this.pinchDist;
   }
   
+  this.viewport.style[userPrefix.js + 'Perspective'] = this.perspective + "px";
   this.element.style.height = this.size + "px";
   this.element.style.width  = this.size + "px";
   
@@ -278,6 +285,7 @@ Viewport.prototype.animate = function() {
 
 }
 var viewport = new Viewport({
+  viewport: document.getElementsByClassName('viewport')[0],
   element: document.getElementsByClassName('cube')[0],
   fps: 20,
   sensivity: .1,
