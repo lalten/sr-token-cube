@@ -133,11 +133,9 @@ function Viewport(data) {
       html = document.documentElement;
 
   var s = [body.scrollWidth, body.offsetWidth, body.clientWidth, html.clientWidth, html.scrollWidth, html.offsetWidth, body.scrollHeight, body.offsetHeight, body.clientHeight, html.clientHeight, html.scrollHeight, html.offsetHeight];
-  console.log(s);
   s = s.filter(Number); // remove 0s
   s = Math.min.apply(Math,s); // get smallest array element
   var minSize = s * 0.5;
-  console.log(minSize);
 
   this.scrollDelta = 0;
   this.size = minSize; //500
