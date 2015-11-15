@@ -128,11 +128,18 @@ function Viewport(data) {
   this.positionY = 136;
   this.torqueX = 0;
   this.torqueY = 0;
-  
+
+  var body = document.body,
+      html = document.documentElement;
+
+  var w = Math.min( body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth );
+  var h = Math.min( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
+  var minSize = Math.min(w,h) * 0.5;
+
   this.scrollDelta = 0;
-  this.size = 500;
-  this.perspective = 1000;
-  
+  this.size = minSize; //500
+  this.perspective = minSize*2;
+
   this.pinch = false;
   this.pinchDist = 0;
   this.pinchDistStart = 0;
@@ -142,7 +149,6 @@ function Viewport(data) {
 
   this.previousPositionX = 0;
   this.previousPositionY = 0;
-
 
   bindEvent(document, 'mousewheel', function(e) { // IE9, Chrome, Safari, Opera
 	  self.scrollDelta += Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
@@ -154,7 +160,7 @@ function Viewport(data) {
     var e = window.event;
 	  self.scrollDelta += Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
   });
-  
+
   bindEvent(document, 'mousedown', function() {
     self.down = true;
   });
@@ -173,7 +179,7 @@ function Viewport(data) {
   });
 
   bindEvent(document, 'touchstart', function(e) {
-  
+
     if(e.touches.length == 1) {
       self.down = true;
       e.touches ? e = e.touches[0] : null;
@@ -187,7 +193,7 @@ function Viewport(data) {
         (e.touches[0].pageY-e.touches[1].pageY) * (e.touches[0].pageY-e.touches[1].pageY));
       self.pinchDist = self.pinchDistStart;
     }
-    
+
   });
 
   bindEvent(document, 'touchmove', function(e) {
@@ -200,7 +206,7 @@ function Viewport(data) {
         (e.touches[0].pageX-e.touches[1].pageX) * (e.touches[0].pageX-e.touches[1].pageX) +
         (e.touches[0].pageY-e.touches[1].pageY) * (e.touches[0].pageY-e.touches[1].pageY));
     }
-    
+
     if(e.touches.length == 1) {
       e.touches ? e = e.touches[0] : null;
       self.mouseX = e.pageX / self.touchSensivity;
@@ -257,27 +263,27 @@ Viewport.prototype.animate = function() {
   }
 
   this.element.style[userPrefix.js + 'Transform'] = 'rotateX(' + this.positionY + 'deg) rotateY(' + this.positionX + 'deg)';
-  
+
   if (this.scrollDelta != 0 || (this.pinchDist > 0 && this.pinchDistStart > 0)) {
-    
+
     var scale = (this.pinchDist / this.pinchDistStart);
-    this.pinchDistStart = this.pinchDist;    
-    
+    this.pinchDistStart = this.pinchDist;
+
     if (this.scrollDelta != 0) {
       scale = 1 + 0.02*this.scrollDelta;
       this.scrollDelta = 0;
     }
-    
+
     this.size *= scale;
     this.touchSensivity *= scale;
     this.perspective *= scale; // don't distort the cube while zooming
-    
+
   }
-  
+
   this.viewport.style[userPrefix.js + 'Perspective'] = this.perspective + "px";
   this.element.style.height = this.size + "px";
   this.element.style.width  = this.size + "px";
-  
+
   var rotateStyle = ['rotate(180deg) rotateX(-90deg)', 'rotate(180deg)', 'rotate(180deg) rotateY(90deg)', 'rotate(180deg) rotateY(180deg)', 'rotate(180deg) rotateY(-90deg)', 'rotateX(-90deg)'];
   for (var i=0; i<6; i++) {
     document.getElementById('side'+i).style.transform = rotateStyle[i] + ' translateZ(' + this.size/2 + 'px)';
@@ -293,4 +299,3 @@ var viewport = new Viewport({
   speed: 2,
   touchSensivity: 4
 });
-
