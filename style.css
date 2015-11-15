@@ -8,6 +8,7 @@ body {
   font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
   font-weight: 300;
   margin: 0;
+  overflow: hidden;
 }
 
 #wrapper {
@@ -15,7 +16,7 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-}
+  }
 
 .viewport {
   display: table-cell;
@@ -44,7 +45,6 @@ body {
   transform: rotateX(136deg) rotateY(136deg); }
 
 .cube > div {
-  overflow: hidden;
   position: absolute;
   opacity: 1;
   height: 100%;
