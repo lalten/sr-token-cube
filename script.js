@@ -139,7 +139,7 @@ function Viewport(data) {
 
   this.scrollDelta = 0;
   this.size = minSize; //500
-  this.perspective = minSize*2;
+  this.perspective = minSize * 4.5;
 
   this.pinch = false;
   this.pinchDist = 0;
