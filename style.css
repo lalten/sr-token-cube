@@ -43,11 +43,11 @@ body {
 .viewport {
   display: table-cell;
   vertical-align: middle;
-  -webkit-perspective: 1000px;
-  -moz-perspective: 1000px;
-  -ms-perspective: 1000px;
-  -o-perspective: 1000px;
-  perspective: 1000px;
+  -webkit-perspective: 1700px;
+  -moz-perspective: 1700px;
+  -ms-perspective: 1700px;
+  -o-perspective: 1700px;
+  perspective: 1700px;
   }
 
 .cube {
@@ -71,7 +71,7 @@ body {
   opacity: 1;
   height: 100%;
   width: 100%;
-  
+
   -webkit-touch-callout: none;
   -moz-touch-callout: none;
   -ms-touch-callout: none;
